@@ -1,20 +1,23 @@
 class PagesController < ApplicationController
   def home
     @currentdate = Date.today
-    @day = Time.now.strftime("%A,%d,%m,%Y").split(",") # returns array
-    @amount_days = Time.days_in_month(@day[2].to_i,@day[3].to_i)
-    set_dates
+    @days_june = Time.days_in_month(@currentdate.month, @currentdate.year)
+    @june = set_dates(@days_june, @currentdate)
+    @july_begin = Date.today.at_beginning_of_month.next_month
+    @days_july = Time.days_in_month(@july_begin.month, @july_begin.year)
+    @july = set_dates(@days_july, @july_begin)
   end
 
   private
 
-  def set_dates
+  def set_dates(number, day)
     counter = 1
     @dates = []
-    while counter <= @amount_days
-      date = Date.new(@day[3].to_i, @day[2].to_i, counter)
+    while counter <= number
+      date = Date.new(day.year, day.month, counter)
       @dates << date
       counter += 1
     end
+    return @dates
   end
 end

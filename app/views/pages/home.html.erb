@@ -1,27 +1,50 @@
 <div class="container bg-light my-5">
   <h1 class="text-center pt-5">Victors</h1>
   <div class="jzdbox1 jzdbasf jzdcal">
-  <div class="jzdcalt"><%= @currentdate.strftime("%B %Y") %></div>
-  <span>Mo</span>
-  <span>Di</span>
-  <span>Mi</span>
-  <span>Do</span>
-  <span>Fr</span>
-  <span>Sa</span>
-  <span>So</span>
-  <% num_first = @dates.first.wday - 1 %>
-  <% num_first.times do |i|  %>
+    <div class="jzdcalt"><%= @currentdate.strftime("%B %Y") %></div>
+    <span>Mo</span>
+    <span>Di</span>
+    <span>Mi</span>
+    <span>Do</span>
+    <span>Fr</span>
+    <span>Sa</span>
+    <span>So</span>
+    <% num_first = @june.first.wday - 1 %>
+    <% num_first.times do |i|  %>
+        <span class="jzdb"></span>
+    <% end  %>
+      <% counter = 1  %>
+    <%  while counter <= @days_june %>
+    <span><%= counter %></span>
+      <%  counter += 1 %>
+    <%  end  %>
+    <% num_last = @june.last.wday - 1 %>
+    <% num_last.times do |i| %>
       <span class="jzdb"></span>
-  <% end  %>
-    <% counter = 1  %>
-  <%  while counter <= @amount_days  %>
-  <span><%= counter %></span>
-    <%  counter += 1 %>
-  <%  end  %>
-  <% num_last = @dates.last.wday - 1 %>
-  <% num_last.times do |i| %>
-    <span class="jzdb"></span>
-  <% end  %>
+    <% end  %>
+  </div>
+  <div class="jzdbox1 jzdbasf jzdcal">
+    <div class="jzdcalt"><%= @july_begin.strftime("%B %Y") %></div>
+    <span>Mo</span>
+    <span>Di</span>
+    <span>Mi</span>
+    <span>Do</span>
+    <span>Fr</span>
+    <span>Sa</span>
+    <span>So</span>
+    <% num_first = @july_begin.wday - 1 %>
+    <% num_first.times do |i|  %>
+        <span class="jzdb"></span>
+    <% end  %>
+      <% counter = 1  %>
+    <%  while counter <= @days_july  %>
+    <span><%= counter %></span>
+      <%  counter += 1 %>
+    <%  end  %>
+    <% num_last = @july.last.wday + 1 %>
+    <% num_last.times do |i| %>
+      <span class="jzdb"></span>
+    <% end  %>
   </div>
 </div>
 
