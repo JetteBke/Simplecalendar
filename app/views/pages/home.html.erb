@@ -2,7 +2,6 @@
   <h1 class="text-center pt-5">Victors</h1>
   <div class="jzdbox1 jzdbasf jzdcal">
   <div class="jzdcalt"><%= @currentdate.strftime("%B %Y") %></div>
-
   <span>Mo</span>
   <span>Di</span>
   <span>Mi</span>
@@ -10,62 +9,19 @@
   <span>Fr</span>
   <span>Sa</span>
   <span>So</span>
-  <% if @dates.first.wday == "Monday" %>
+  <% num_first = @dates.first.wday - 1 %>
+  <% num_first.times do |i|  %>
+      <span class="jzdb"></span>
+  <% end  %>
     <% counter = 1  %>
-    <%  while counter <= @days  %>
-    <span><%= counter %></span>
-      <%  counter += 1 %>
-    <%  end  %>
-  <% elsif @dates.first.wday == "Tuesday" %>
-      <span class="jzdb"><!--BLANK--></span>
-    <% counter = 1  %>
-    <%  while counter <= @days  %>
-    <span><%= counter %></span>
-      <%  counter += 1 %>
-    <%  end  %>
-  <% elsif @dates.first.wday == "Wednesday"%>
-    <span class="jzdb"><!--BLANK--></span>
-    <span class="jzdb"><!--BLANK--></span>
-    <% counter = 1  %>
-    <%  while counter <= @days  %>
-    <span><%= counter %></span>
-      <%  counter += 1 %>
-    <%  end  %>
-  <% elsif @dates.first.wday == "Thursday" %>
-    <span class="jzdb"><!--BLANK--></span>
-    <span class="jzdb"><!--BLANK--></span>
-    <span class="jzdb"><!--BLANK--></span>
-    <% counter = 1  %>
-    <%  while counter <= @days  %>
-    <span><%= counter %></span>
-      <%  counter += 1 %>
-    <%  end  %>
-  <% elsif @dates.first.wday == 6 %>
-    <span class="jzdb"><!--BLANK--></span>
-    <span class="jzdb"><!--BLANK--></span>
-    <span class="jzdb"><!--BLANK--></span>
-    <span class="jzdb"><!--BLANK--></span>
-    <span class="jzdb"><!--BLANK--></span>
-    <% counter = 1  %>
-    <%  while counter <= @days  %>
-    <span><%= counter %></span>
-      <%  counter += 1 %>
-    <%  end  %>
-  <% end %>
-  <span class="jzdb"><!--BLANK--></span>
-  <span class="jzdb"><!--BLANK--></span>
-  <span class="jzdb"><!--BLANK--></span>
-  <span class="jzdb"><!--BLANK--></span>
-  <span class="jzdb"><!--BLANK--></span>
-  <span class="jzdb"><!--BLANK--></span>
+  <%  while counter <= @amount_days  %>
+  <span><%= counter %></span>
+    <%  counter += 1 %>
+  <%  end  %>
+  <% num_last = @dates.last.wday - 1 %>
+  <% num_last.times do |i| %>
+    <span class="jzdb"></span>
+  <% end  %>
   </div>
 </div>
-
-
-<script>
-const dates = getDaysInMonth();
-dates.forEach((date) => {
-  return date.toString();
-});
-</script>
 
