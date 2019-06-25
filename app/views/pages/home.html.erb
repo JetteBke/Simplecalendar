@@ -1,50 +1,44 @@
-<div class="container bg-light my-5">
+<div class="container bg-dark my-5">
   <h1 class="text-center pt-5">Victors</h1>
-  <div class="jzdbox1 jzdbasf jzdcal">
-    <div class="jzdcalt"><%= @currentdate.strftime("%B %Y") %></div>
-    <span>Mo</span>
-    <span>Di</span>
-    <span>Mi</span>
-    <span>Do</span>
-    <span>Fr</span>
-    <span>Sa</span>
-    <span>So</span>
-    <% num_first = @june.first.wday - 1 %>
-    <% num_first.times do |i|  %>
-        <span class="jzdb"></span>
-    <% end  %>
-      <% counter = 1  %>
-    <%  while counter <= @days_june %>
-    <span><%= counter %></span>
-      <%  counter += 1 %>
-    <%  end  %>
-    <% num_last = @june.last.wday - 1 %>
-    <% num_last.times do |i| %>
-      <span class="jzdb"></span>
-    <% end  %>
-  </div>
-  <div class="jzdbox1 jzdbasf jzdcal">
-    <div class="jzdcalt"><%= @july_begin.strftime("%B %Y") %></div>
-    <span>Mo</span>
-    <span>Di</span>
-    <span>Mi</span>
-    <span>Do</span>
-    <span>Fr</span>
-    <span>Sa</span>
-    <span>So</span>
-    <% num_first = @july_begin.wday - 1 %>
-    <% num_first.times do |i|  %>
-        <span class="jzdb"></span>
-    <% end  %>
-      <% counter = 1  %>
-    <%  while counter <= @days_july  %>
-    <span><%= counter %></span>
-      <%  counter += 1 %>
-    <%  end  %>
-    <% num_last = @july.last.wday + 1 %>
-    <% num_last.times do |i| %>
-      <span class="jzdb"></span>
-    <% end  %>
+  <div id="carouselExampleControls" class="carousel slide" data-interval="false" data-ride="carousel">
+    <div class="carousel-inner">
+              <div class="carousel-item active">
+                <h1 class="text-center">ready?</h1>
+</div>
+      <% @months_with_dates.each do |month_with_dates| %>
+        <div class="carousel-item">
+          <div class="jzdbox1 jzdbasf jzdcal">
+            <div class="jzdcalt"><%= month_with_dates[:first_date].strftime("%B %Y") %></div>
+            <span>Mo</span>
+            <span>Di</span>
+            <span>Mi</span>
+            <span>Do</span>
+            <span>Fr</span>
+            <span>Sa</span>
+            <span>So</span>
+            <% num_first = month_with_dates[:first_date].wday - 1 %>
+            <% num_first.times do |i|  %>
+              <span class="jzdb"></span>
+            <% end  %>
+            <% counter = 1  %>
+            <%  while counter <= month_with_dates[:num]  %>
+              <span><%= counter %></span>
+              <%  counter += 1 %>
+            <%  end  %>
+            <% num_last = month_with_dates[:dates].last.wday %>
+            <%# num_last.times do |i| %>
+            <%# end  %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
   </div>
 </div>
-
