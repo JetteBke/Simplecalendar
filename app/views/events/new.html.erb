@@ -1,2 +1,16 @@
-<h1>Events#new</h1>
-<p>Find me in app/views/events/new.html.erb</p>
+<div class="container bg-dark my-4">
+  <h1 class="text-center py-4 text-white">Füge einen Termin hinzu</h1>
+  <div class="form">
+    <%= simple_form_for(@event) do |f| %>
+      <%= f.input :doctor %>
+      <%= f.input :praxis %>
+      <%= f.input :start_at %>
+      <%= f.input :end_at %>
+      <%= f.input :address %>
+      <%= f.input :website %>
+      <div class="text-center">
+        <%= f.submit "Submit", class:"btn submit-button mb-5" %>
+    <% end  %>
+  </div>
+    </div>
+</div>
