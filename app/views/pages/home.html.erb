@@ -8,26 +8,29 @@
       <% @months_with_dates.each do |month_with_dates| %>
         <div class="carousel-item">
           <div class="jzdbox1 jzdbasf jzdcal">
-            <div class="jzdcalt"><%= month_with_dates[:first_date].strftime("%B %Y") %></div>
-            <span>Mo</span>
-            <span>Di</span>
-            <span>Mi</span>
-            <span>Do</span>
-            <span>Fr</span>
-            <span>Sa</span>
-            <span>So</span>
+            <div class="jzdcalt pt-3"><%= month_with_dates[:first_date].strftime("%B %Y") %></div>
+              <div class="jzdcalt week">
+                <span>Mo</span>
+                <span>Di</span>
+                <span>Mi</span>
+                <span>Do</span>
+                <span>Fr</span>
+                <span>Sa</span>
+                <span>So</span>
+
             <% num_first = month_with_dates[:first_date].wday - 1 %>
             <% num_first.times do |i|  %>
-              <span class="jzdb"></span>
+              <span class="jzdb col-lg-1"></span>
             <% end  %>
             <% counter = 1  %>
             <%  while counter <= month_with_dates[:num]  %>
-              <span><%= counter %></span>
+              <span class="col-lg-1"><%= counter %></span>
               <%  counter += 1 %>
             <%  end  %>
             <% num_last = month_with_dates[:dates].last.wday %>
             <%# num_last.times do |i| %>
             <%# end  %>
+            </div>
           </div>
         </div>
       <% end %>

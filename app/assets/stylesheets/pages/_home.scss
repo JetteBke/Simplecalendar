@@ -5,10 +5,9 @@ body {
 }
 
 .jzdbox1 {
-  width:315px;
+  width:600px;
   background:#332f2e;
   border-radius:5px;
-  overflow:hidden;
   display:block;
   margin-bottom:10px;
   box-shadow:0 0 10px #201d1c;
@@ -42,12 +41,11 @@ body {
   font-weight:400;
   color:#f7f3eb;
   text-align:center;
-  width:42px;
+  width:50px;
   height:42px;
   display:inline-block;
-  float:left;
-  overflow:hidden;
   line-height:40px;
+  align-items: center;
 }
 
 .jzdcal .jzdb:before {
@@ -76,3 +74,9 @@ div[data-title]:hover:after {
   min-width:150px;
   max-width:150px;
 }// Specific CSS for your home-page
+
+
+.week {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
