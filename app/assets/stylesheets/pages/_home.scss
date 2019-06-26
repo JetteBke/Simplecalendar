@@ -5,7 +5,7 @@ body {
 }
 
 .jzdbox1 {
-  width:600px;
+  width:900px;
   background:#332f2e;
   border-radius:5px;
   display:block;
@@ -37,15 +37,14 @@ body {
 }
 
 .jzdcal span {
-  font:20px 'Roboto';
-  font-weight:400;
-  color:#f7f3eb;
-  text-align:center;
-  width:50px;
-  height:42px;
-  display:inline-block;
-  line-height:40px;
-  align-items: center;
+    font: 30px 'Roboto';
+    color: #f7f3eb;
+    float: left;
+    width: 80px;
+    height: 80px;
+    display: inline-block;
+    line-height: 40px;
+    margin: auto;
 }
 
 .jzdcal .jzdb:before {
