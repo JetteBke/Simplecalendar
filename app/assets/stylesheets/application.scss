@@ -11,3 +11,16 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "components/form";
+
+
+.links {
+  color:white;
+  text-decoration: none;
+  padding-left: 15px;
+}
+
+.links:hover {
+  color: grey;
+  text-decoration: none;
+}
