@@ -1,39 +1,39 @@
-const currentDatetime = () => {
-  const currentdate = new Date();
-  const datetime = "Last Sync: " + currentdate.getDate() + "/"
-                  + (currentdate.getMonth()+1)  + "/"
-                  + currentdate.getFullYear() + " @ "
-                  + currentdate.getHours() + ":"
-                  + currentdate.getMinutes() + ":"
-                  + currentdate.getSeconds();
-  console.log(typeof(datetime));
-};
+// const currentDatetime = () => {
+//   const currentdate = new Date();
+//   const datetime = "Last Sync: " + currentdate.getDate() + "/"
+//                   + (currentdate.getMonth()+1)  + "/"
+//                   + currentdate.getFullYear() + " @ "
+//                   + currentdate.getHours() + ":"
+//                   + currentdate.getMinutes() + ":"
+//                   + currentdate.getSeconds();
+//   console.log(typeof(datetime));
+// };
 
 
-const showMonth = () => {
-  const now = new Date();
-  return now.getMonth();
-  //console.log(now.getMonth());
-};
+// const showMonth = () => {
+//   const now = new Date();
+//   return now.getMonth();
+//   //console.log(now.getMonth());
+// };
 
-const showYear = () => {
-  const now = new Date();
-  return now.getYear();
-}
+// const showYear = () => {
+//   const now = new Date();
+//   return now.getYear();
+// }
 
-//console.log(showMonth());
+// //console.log(showMonth());
 
-const getDaysInMonth = (month, year) => {
-     const date = new Date(year, month, 1);
-     const days = [];
-     while (date.getMonth() === month) {
-        days.push(new Date(date));
-        date.setDate(date.getDate() + 1);
-     }
-     return days;
-};
+// const getDaysInMonth = (month, year) => {
+//      const date = new Date(year, month, 1);
+//      const days = [];
+//      while (date.getMonth() === month) {
+//         days.push(new Date(date));
+//         date.setDate(date.getDate() + 1);
+//      }
+//      return days;
+// };
 
-getDaysInMonth(showMonth(), showYear());
+// getDaysInMonth(showMonth(), showYear());
 
 
 /*function printCalendarRows = () => {
