@@ -3,6 +3,7 @@ class PagesController < ApplicationController
     @currentdate = Date.today
     @first_dates = set_multiple_months(@currentdate)
     @months_with_dates = get_dates_and_amounts(@first_dates)
+    @events = Event.all
   end
 
   private
