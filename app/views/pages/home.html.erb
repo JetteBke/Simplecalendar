@@ -27,12 +27,20 @@
             <% end %>
             <% num_first.times do |i|  %>
               <span class="jzdb col-lg-1"></span>
-            <% end  %>
-            <% counter = 1  %>
-            <%  while counter <= month_with_dates[:num]  %>
-              <span class="col-lg-1"><%= counter %></span>
-              <%  counter += 1 %>
-            <%  end  %>
+            <% end %>
+            <% month_with_dates[:dates].each do |date| %>
+            <% @starts = [] %>
+              <% @events.each do |event| %>
+                <% @start = event[:start_at].to_date %>
+                <% @starts << @start %>
+              <% end %>
+              <% if @starts.include? date %>
+                <span class="col-lg-1 circle"><%= date.day %></span>
+              <% else %>
+                <span class="col-lg-1"><%= date.day %></span>
+              <% end %>
+              <%# raise %>
+            <% end %>
             <% num_last = month_with_dates[:first_date].end_of_month.wday - 7 %>
             <% num_last = - num_last %>
             <% if num_last != 7 %>
