@@ -1,6 +1,7 @@
 <div class="container bg-dark my-5 pb-5">
   <h1 class="text-center pt-5 text-white">Victors</h1>
   <%= link_to 'New event', new_event_path, class:'links' %>
+  <%= link_to 'Alle Events', events_path, class:'links pl-2' %>
   <div id="carouselExampleControls" class="carousel slide" data-interval="false" data-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
@@ -18,7 +19,12 @@
                 <span>Fr</span>
                 <span>Sa</span>
                 <span>So</span>
-            <% num_first = month_with_dates[:first_date].wday - 1 %>
+            <% num_first = month_with_dates[:first_date].wday %>
+            <% if num_first != 0 %>
+              <% num_first = num_first - 1  %>
+            <% else %>
+              <% num_first = num_first + 6 %>
+            <% end %>
             <% num_first.times do |i|  %>
               <span class="jzdb col-lg-1"></span>
             <% end  %>
@@ -27,9 +33,13 @@
               <span class="col-lg-1"><%= counter %></span>
               <%  counter += 1 %>
             <%  end  %>
-            <% num_last = month_with_dates[:dates].last.wday %>
-            <%# num_last.times do |i| %>
-            <%# end  %>
+            <% num_last = month_with_dates[:first_date].end_of_month.wday - 7 %>
+            <% num_last = - num_last %>
+            <% if num_last != 7 %>
+              <% num_last.times do |i| %>
+                <span class="jzdb col-lg-1"></span>
+              <% end  %>
+            <% end %>
             </div>
           </div>
         </div>
