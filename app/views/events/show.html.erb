@@ -1,2 +1,12 @@
-<h1>Events#show</h1>
-<p>Find me in app/views/events/show.html.erb</p>
+<div class="container bg-dark my-4 py-5">
+<h1 class="text-white pb-3 text-center"><%= @event.praxis %></h1>
+<%= link_to 'Kalendar', root_path, class:'links' %>
+
+<ul class="list-group text-center w-50 m-auto">
+  <li class="list-group-item">Praxis: <strong><%= @event.praxis %></strong></li>
+  <li class="list-group-item">Doktor: <strong><%= @event.doctor %></strong></li>
+  <li class="list-group-item">Adresse: <strong><%= @event.address %></strong></li>
+  <li class="list-group-item">Website: <strong><%= @event.website %></strong></li>
+  <li class="list-group-item">Uhrzeit: <strong><%= @event.start_at %> - <%= @event.end_at %></strong></li>
+</ul>
+</div>

@@ -5,7 +5,7 @@ body {
 }
 
 .jzdbox1 {
-  width:900px;
+  width:650px;
   background:#332f2e;
   border-radius:5px;
   display:block;
@@ -26,7 +26,7 @@ body {
 }
 
 .jzdcalt {
-  font:18px 'Roboto';
+  font:25px 'Roboto';
   font-weight:700;
   color:#f7f3eb;
   display:block;
@@ -37,11 +37,11 @@ body {
 }
 
 .jzdcal span {
-    font: 30px 'Roboto';
+    font: 25px 'Roboto';
     color: #f7f3eb;
     float: left;
-    width: 80px;
-    height: 80px;
+    width: 51px;
+    height: 51px;
     display: inline-block;
     line-height: 40px;
     margin: auto;
@@ -78,4 +78,14 @@ div[data-title]:hover:after {
 .week {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.link-calendar {
+  color: white;
+  text-decoration: none;
+}
+
+.link-calendar:hover {
+  text-decoration: none;
+  color: white;
 }

@@ -5,7 +5,7 @@
   <div id="carouselExampleControls" class="carousel slide" data-interval="false" data-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <h1 class="text-center text-white">ready?</h1>
+        <h1 class="text-center text-white">Click für Juli 2019</h1>
       </div>
       <% @months_with_dates.each do |month_with_dates| %>
         <div class="carousel-item">
@@ -19,28 +19,26 @@
                 <span>Fr</span>
                 <span>Sa</span>
                 <span>So</span>
-            <% num_first = month_with_dates[:first_date].wday %>
-            <% if num_first != 0 %>
-              <% num_first = num_first - 1  %>
-            <% else %>
-              <% num_first = num_first + 6 %>
-            <% end %>
+            <% num_first = month_with_dates[:first_date].wday - 1 %>
+            <% num_first = num_first + 7 if num_first == -1 %>
             <% num_first.times do |i|  %>
               <span class="jzdb col-lg-1"></span>
             <% end %>
+
             <% month_with_dates[:dates].each do |date| %>
-            <% @starts = [] %>
+              <% @current_events = [] %>
               <% @events.each do |event| %>
-                <% @start = event[:start_at].to_date %>
-                <% @starts << @start %>
+                <% if event[:start_at].to_date == date %>
+                  <% @current_events << event %>
+                <% end %>
               <% end %>
-              <% if @starts.include? date %>
-                <span class="col-lg-1 circle"><%= date.day %></span>
+              <% if @current_events.any? %>
+                <span class="col-lg-1 circle" data-title=<%= @current_events.first.doctor %>><%= link_to date.day, event_path(@current_events.first), class:'link-calendar' %></span>
               <% else %>
                 <span class="col-lg-1"><%= date.day %></span>
               <% end %>
-              <%# raise %>
             <% end %>
+
             <% num_last = month_with_dates[:first_date].end_of_month.wday - 7 %>
             <% num_last = - num_last %>
             <% if num_last != 7 %>
