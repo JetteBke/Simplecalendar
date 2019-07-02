@@ -20,18 +20,6 @@ class EventsController < ApplicationController
     end
   end
 
-  def edit
-  end
-
-  def update
-    @event.update(event_params)
-    if @event.save
-      redirect_to @events
-    else
-      render :edit
-    end
-  end
-
   def destroy
     @event.delete
     redirect_to root_path
