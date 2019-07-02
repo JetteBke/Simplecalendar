@@ -26,12 +26,7 @@
             <% end %>
 
             <% month_with_dates[:dates].each do |date| %>
-              <% @current_events = [] %>
-              <% @events.each do |event| %>
-                <% if event[:start_at].to_date == date %>
-                  <% @current_events << event %>
-                <% end %>
-              <% end %>
+              <% @current_events = @events.select { |event| event[:start_at].to_date == date } %>
               <% if @current_events.any? %>
                 <span class="col-lg-1 circle" data-title=<%= @current_events.first.doctor %>><%= link_to date.day, event_path(@current_events.first), class:'link-calendar' %></span>
               <% else %>
