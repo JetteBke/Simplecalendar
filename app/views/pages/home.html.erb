@@ -1,11 +1,11 @@
 <div class="container bg-dark my-5 pb-5">
-  <h1 class="text-center pt-5 text-white">Victors</h1>
-  <%= link_to 'New event', new_event_path, class:'links' %>
-  <%= link_to 'Alle Events', events_path, class:'links pl-2' %>
+  <h1 class="text-center pt-5 text-white">Victors Kalendar</h1>
+  <%= link_to 'Neuer Termin', new_event_path, class:'links' %>
+  <%= link_to 'Alle Termine', events_path, class:'links pl-2' %>
   <div id="carouselExampleControls" class="carousel slide" data-interval="false" data-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <h1 class="text-center text-white">Click für Juli 2019</h1>
+        <h1 class="text-center text-white">Klick für Juli 2019</h1>
       </div>
       <% @months_with_dates.each do |month_with_dates| %>
         <div class="carousel-item">
@@ -22,7 +22,7 @@
             <% num_first = month_with_dates[:first_date].wday - 1 %>
             <% num_first = num_first + 7 if num_first == -1 %>
             <% num_first.times do |i|  %>
-              <span class="jzdb col-lg-1"></span>
+              <span class="jzdb"></span>
             <% end %>
 
             <% month_with_dates[:dates].each do |date| %>
@@ -33,9 +33,9 @@
                 <% end %>
               <% end %>
               <% if @current_events.any? %>
-                <span class="col-lg-1 circle" data-title=<%= @current_events.first.doctor %>><%= link_to date.day, event_path(@current_events.first), class:'link-calendar' %></span>
+                <span class="circle" data-title=<%= @current_events.first.doctor %>><%= link_to date.day, event_path(@current_events.first), class:'link-calendar' %></span>
               <% else %>
-                <span class="col-lg-1"><%= date.day %></span>
+                <span><%= date.day %></span>
               <% end %>
             <% end %>
 
@@ -43,7 +43,7 @@
             <% num_last = - num_last %>
             <% if num_last != 7 %>
               <% num_last.times do |i| %>
-                <span class="jzdb col-lg-1"></span>
+                <span class="jzdb"></span>
               <% end  %>
             <% end %>
             </div>
